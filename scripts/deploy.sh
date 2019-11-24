@@ -23,7 +23,7 @@ elif [[ $1 == "update" ]]
   then
 
     kubectl apply -f kube/
-h
+    
     aws appmesh update-virtual-node --cli-input-json file://mesh/vn-frontend.json
     aws appmesh update-virtual-node --cli-input-json file://mesh/vn-cat.json
     aws appmesh update-virtual-node --cli-input-json file://mesh/vn-dog.json
