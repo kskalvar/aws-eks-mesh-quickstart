@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: catdog-cat
+  name: catdog-backend
   labels:
-    app: catdog-backend
+    app: catdog-cat
     env: catdog-eks
 spec:
   ports:
