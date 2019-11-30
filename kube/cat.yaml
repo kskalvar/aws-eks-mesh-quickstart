@@ -4,7 +4,7 @@ metadata:
   name: catdog-cat
   labels:
     app: catdog-cat
-    env: eks-catddog
+    env: eks-catdog
 spec:
   ports:
   - port: 80
