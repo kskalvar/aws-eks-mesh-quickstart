@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-default
+  name: nginx-frontend
 data:
   default.conf: |
     server {
@@ -54,7 +54,7 @@ spec:
         volumeMounts:
         - mountPath: /etc/nginx/conf.d
           readOnly: true
-          name: nginx-default
+          name: nginx-frontend
       - name: envoy
         image: 111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.9.0.0-prod
         securityContext:
@@ -87,9 +87,9 @@ spec:
             - name: "APPMESH_EGRESS_IGNORED_IP"
               value: "169.254.169.254"
       volumes:
-        - name: nginx-default
+        - name: nginx-frontend
           configMap:
-            name: nginx-default
+            name: nginx-frontend
             items:
               - key: default.conf
                 path: default.conf
