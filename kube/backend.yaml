@@ -11,7 +11,6 @@ spec:
     name: http
   selector:
     app: catdog-backend
-#  type: LoadBalancer
 ---
 apiVersion: v1
 kind: ConfigMap
