@@ -1,5 +1,5 @@
 {
-    "meshName": "catdog-eks",
+    "meshName": "eks-catdog",
     "routeName": "catdog-backend",
     "spec": {
       "httpRoute": {

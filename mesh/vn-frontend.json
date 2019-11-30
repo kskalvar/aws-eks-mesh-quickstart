@@ -1,5 +1,5 @@
 {
-    "meshName": "catdog-eks", 
+    "meshName": "eks-catddog", 
     "spec": {
         "backends": [
             {
