@@ -4,7 +4,7 @@ metadata:
   name: catdog-frontend
   labels:
     app: catdog-frontend
-    env: catdog-eks
+    env: eks-catdog
 spec:
   ports:
   - port: 80
@@ -23,7 +23,7 @@ data:
         listen 80;
 
         location / {
-            proxy_pass http://catdog-cat.default.svc.cluster.local;
+            proxy_pass http://catdog-backend.default.svc.cluster.local;
             proxy_http_version 1.1;
         }
     }
@@ -34,7 +34,7 @@ metadata:
   name: catdog-frontend
   labels:
     app: catdog-frontend
-    env: catdog-eks
+    env: eks-catdog
 spec:
   replicas: 3
   selector:
@@ -44,7 +44,7 @@ spec:
     metadata:
       labels:
         app: catdog-frontend
-        env: catdog-eks
+        env: eks-catdog
     spec:
       containers:
       - name: nginx
@@ -57,12 +57,11 @@ spec:
           name: nginx-default
       - name: envoy
         image: 111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.9.0.0-prod
-#        image: 111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.8.0.2-beta
         securityContext:
           runAsUser: 1337
         env:
           - name: "APPMESH_VIRTUAL_NODE_NAME"
-            value: "mesh/catdog-eks/virtualNode/catdog-frontend"
+            value: "mesh/eks-catdog/virtualNode/catdog-frontend"
           - name: "ENVOY_LOG_LEVEL"
             value: "info"
           - name: "AWS_REGION"

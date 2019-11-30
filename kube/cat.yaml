@@ -4,7 +4,7 @@ metadata:
   name: catdog-cat
   labels:
     app: catdog-cat
-    env: catdog-eks
+    env: eks-catdog
 spec:
   ports:
   - port: 80
@@ -19,7 +19,7 @@ metadata:
   name: catdog-cat
   labels:
     app: catdog-cat
-    env: catdog-eks
+    env: eks-catdog
 spec:
   replicas: 3
   selector:
@@ -29,7 +29,7 @@ spec:
     metadata:
       labels:
         app: catdog-cat
-        env: catdog-eks
+        env: eks-catdog
     spec:
       containers:
       - name: catdog-cat
@@ -42,7 +42,7 @@ spec:
           runAsUser: 1337
         env:
           - name: "APPMESH_VIRTUAL_NODE_NAME"
-            value: "mesh/catdog-eks/virtualNode/catdog-cat"
+            value: "mesh/eks-catdog/virtualNode/catdog-cat"
           - name: "ENVOY_LOG_LEVEL"
             value: "info"
           - name: "AWS_REGION"

@@ -5,7 +5,7 @@ if [[ $1 == "create" ]]
 
     kubectl apply -f kube/
 
-    aws appmesh create-mesh --mesh-name catdog-eks
+    aws appmesh create-mesh --mesh-name eks-catdog
     
     aws appmesh create-virtual-node --cli-input-json file://mesh/vn-frontend.json
     aws appmesh create-virtual-node --cli-input-json file://mesh/vn-cat.json
@@ -38,15 +38,15 @@ elif [[ $1 == "delete" ]]
 
     kubectl delete -f kube/
 
-    aws appmesh delete-virtual-node --mesh-name catdog-eks --virtual-node-name catdog-frontend
-    aws appmesh delete-virtual-node --mesh-name catdog-eks --virtual-node-name catdog-cat
-    aws appmesh delete-virtual-node --mesh-name catdog-eks --virtual-node-name catdog-dog
-    aws appmesh delete-virtual-service --mesh-name catdog-eks --virtual-service-name catdog-backend.default.svc.cluster.local
-    aws appmesh delete-route --mesh-name catdog-eks --route-name catdog-frontend --virtual-router-name catdog-frontend
-    aws appmesh delete-route --mesh-name catdog-eks --route-name catdog-backend --virtual-router-name catdog-backend
-    aws appmesh delete-virtual-router --mesh-name catdog-eks --virtual-router-name catdog-frontend
-    aws appmesh delete-virtual-router --mesh-name catdog-eks --virtual-router-name catdog-backend
-    aws appmesh delete-mesh --mesh-name catdog-eks
+    aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-frontend
+    aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-cat
+    aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-dog
+    aws appmesh delete-virtual-service --mesh-name eks-catdog --virtual-service-name catdog-backend.default.svc.cluster.local
+    aws appmesh delete-route --mesh-name eks-catdog --route-name catdog-frontend --virtual-router-name catdog-frontend
+    aws appmesh delete-route --mesh-name eks-catdog --route-name catdog-backend --virtual-router-name catdog-backend
+    aws appmesh delete-virtual-router --mesh-name eks-catdog --virtual-router-name catdog-frontend
+    aws appmesh delete-virtual-router --mesh-name eks-catdog --virtual-router-name catdog-backend
+    aws appmesh delete-mesh --mesh-name eks-catdog
 
 elif [[ $1 == "update-routes" ]]
   then

@@ -19,7 +19,7 @@
         ], 
         "serviceDiscovery": {
             "dns": {
-                "hostname": "catdog-backend.default.svc.cluster.local"
+                "hostname": "catdog-cat.default.svc.cluster.local"
             }
         }
     }, 
