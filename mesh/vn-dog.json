@@ -1,5 +1,5 @@
 {
-    "meshName": "eks-catddog", 
+    "meshName": "eks-catdog", 
     "spec": {
         "listeners": [
             {
