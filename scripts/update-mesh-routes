@@ -1,0 +1,4 @@
+#!/bin/bash
+
+aws appmesh update-route --cli-input-json file://mesh/route-frontend.json
+aws appmesh update-route --cli-input-json file://mesh/route-backend.json

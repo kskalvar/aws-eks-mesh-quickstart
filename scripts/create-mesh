@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ kubectl apply -f kube/
+
+ aws appmesh create-mesh --mesh-name eks-catdog
+    
+ aws appmesh create-virtual-node --cli-input-json file://mesh/vn-frontend.json
+ aws appmesh create-virtual-node --cli-input-json file://mesh/vn-cat.json
+ aws appmesh create-virtual-node --cli-input-json file://mesh/vn-dog.json
+    
+ aws appmesh create-virtual-router --cli-input-json file://mesh/vr-frontend.json
+ aws appmesh create-virtual-router --cli-input-json file://mesh/vr-backend.json
+    
+ aws appmesh create-virtual-service --cli-input-json file://mesh/vs-backend.json
+    
+ aws appmesh create-route --cli-input-json file://mesh/route-frontend.json
+ aws appmesh create-route --cli-input-json file://mesh/route-backend.json

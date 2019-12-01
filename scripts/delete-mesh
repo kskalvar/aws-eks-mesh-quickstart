@@ -1,0 +1,13 @@
+#!/bin/bash
+
+kubectl delete -f kube/
+
+aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-frontend
+aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-cat
+aws appmesh delete-virtual-node --mesh-name eks-catdog --virtual-node-name catdog-dog
+aws appmesh delete-virtual-service --mesh-name eks-catdog --virtual-service-name catdog-backend.default.svc.cluster.local
+aws appmesh delete-route --mesh-name eks-catdog --route-name catdog-frontend --virtual-router-name catdog-frontend
+aws appmesh delete-route --mesh-name eks-catdog --route-name catdog-backend --virtual-router-name catdog-backend
+aws appmesh delete-virtual-router --mesh-name eks-catdog --virtual-router-name catdog-frontend
+aws appmesh delete-virtual-router --mesh-name eks-catdog --virtual-router-name catdog-backend
+aws appmesh delete-mesh --mesh-name eks-catdog

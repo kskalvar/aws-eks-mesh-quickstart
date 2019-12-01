@@ -1,0 +1,12 @@
+#!/bin/bash
+
+kubectl apply -f kube/
+    
+aws appmesh update-virtual-node --cli-input-json file://mesh/vn-frontend.json
+aws appmesh update-virtual-node --cli-input-json file://mesh/vn-cat.json
+aws appmesh update-virtual-node --cli-input-json file://mesh/vn-dog.json
+aws appmesh update-virtual-service --cli-input-json file://mesh/vs-backend.json
+aws appmesh update-virtual-router --cli-input-json file://mesh/vr-frontend.json
+aws appmesh update-virtual-router --cli-input-json file://mesh/vr-backend.json
+aws appmesh update-route --cli-input-json file://mesh/route-frontend.json
+aws appmesh update-route --cli-input-json file://mesh/route-backend.json
