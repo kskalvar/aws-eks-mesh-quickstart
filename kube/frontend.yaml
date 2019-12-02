@@ -56,7 +56,7 @@ spec:
           readOnly: true
           name: nginx-frontend
       - name: envoy
-        image: 840364872350.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-envoy:v1.12.1.1-prod
+        image: 840364872350.dkr.ecr.us-east-1.amazonaws.com/aws-appmesh-envoy:v1.12.1.1-prod
         securityContext:
           runAsUser: 1337
         env:
