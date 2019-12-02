@@ -1,0 +1,9 @@
+#!/bin/bash
+
+lb=`kubectl get svc | grep catdog-frontend | cut -d" " -f10`
+
+while true
+do
+       curl -s $lb | grep response
+       sleep .5
+done
